@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudBooks - Your Digital Library</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <i class="fas fa-book"></i> CloudBooks
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search for books, authors, genres..." />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="nav-links">
+          <a href="#"><i class="fas fa-user"></i>Ullas</a>
+          <a href="#"><i class="fas fa-bookmark"></i> Library</a>
+          <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Your Digital Library in the Cloud</h1>
+      <p>Discover thousands of books, download instantly, and read anywhere. Your books are always available in your
+        personal cloud library.</p>
+      <a href="#featured" class="btn">Explore Books</a>
+    </section>
+
+    <section class="categories">
+      <button class="category-btn active">All</button>
+      <button class="category-btn">Fiction</button>
+      <button class="category-btn">Non-Fiction</button>
+      <button class="category-btn">Science</button>
+      <button class="category-btn">History</button>
+      <button class="category-btn">Business</button>
+      <button class="category-btn">Computers</button>
+      <button class="category-btn">Self-Help</button>
+    </section>
+
+    <section id="featured">
+      <h2 class="section-title"><i class="fas fa-star"></i> Featured Books</h2>
+      <div class="books-grid">
+        <!-- Dracula -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="assets/images/dracula.jpg" alt="Dracula">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Dracula</div>
+            <div class="book-author">By Bram Stoker</div>
+            <div class="book-actions">
+              <button class="btn" onclick="openBookDetails('dracula')">Details</button>
+              <button class="btn" onclick="downloadBook('Dracula.epub')">Download</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Frankenstein -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="assets/images/frankenstein.jpg" alt="Frankenstein">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Frankenstein</div>
+            <div class="book-author">By Mary Shelley</div>
+            <div class="book-actions">
+              <button class="btn" onclick="openBookDetails('frankenstein')">Details</button>
+              <button class="btn" onclick="downloadBook('Frankenstein.epub')">Download</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- The Alice Network -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="assets/images/alice-network.jpg" alt="The Alice Network">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Alice Network</div>
+            <div class="book-author">By Kate Quinn</div>
+            <div class="book-actions">
+              <button class="btn" onclick="openBookDetails('alice-network')">Details</button>
+              <button class="btn" onclick="downloadBook('The Alice Network.epub')">Download</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- The Hobbit -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="assets/images/hobbit.jpg" alt="The Hobbit">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Hobbit</div>
+            <div class="book-author">By J.R.R. Tolkien</div>
+            <div class="book-actions">
+              <button class="btn" onclick="openBookDetails('hobbit')">Details</button>
+              <button class="btn" onclick="downloadBook('The Hobbit (J.R.R. Tolkien) (Z-Library).epub')">Download</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- The Night Circus -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="assets/images/night-circus.jpg" alt="The Night Circus">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Night Circus</div>
+            <div class="book-author">By Erin Morgenstern</div>
+            <div class="book-actions">
+              <button class="btn" onclick="openBookDetails('night-circus')">Details</button>
+              <button class="btn" onclick="downloadBook('The Night Circus.epub')">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><i class="fas fa-fire"></i> Popular in Technology</h2>
+      <div class="books-grid">
+        <!-- Placeholder for technology books -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>About CloudBooks</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Report an Issue</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>My Account</h3>
+          <ul>
+            <li><a href="#">My Library</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a href="#">Purchase History</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 CloudBooks. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Book Details Modal -->
+  <div id="bookDetailsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeBookDetails()">&times;</span>
+      <div class="book-details">
+        <div class="book-details-cover">
+          <img id="modalBookCover" src="/api/placeholder/400/600" alt="Book Cover">
+        </div>
+        <div class="book-details-info">
+          <h2 id="modalBookTitle" class="book-details-title">Book Title</h2>
+          <p id="modalBookAuthor" class="book-details-author">By Author Name</p>
+          <div class="book-details-meta">
+            <div class="book-details-meta-item">
+              <i class="fas fa-book"></i>
+              <span id="modalBookPages">324 pages</span>
+            </div>
+            <div class="book-details-meta-item">
+              <i class="fas fa-star"></i>
+              <span id="modalBookRating">4.5 (230 reviews)</span>
+            </div>
+            <div class="book-details-meta-item">
+              <i class="fas fa-file-alt"></i>
+              <span id="modalBookFormat">PDF, EPUB, MOBI</span>
+            </div>
+          </div>
+          <div id="modalBookDescription" class="book-details-description">
+            This is a placeholder for the book description. The actual description will be loaded dynamically when you
+            click on a book.
+          </div>
+          <div id="modalBookPrice" class="book-details-price">$12.99</div>
+          <div class="book-details-actions">
+            <button class="btn" onclick="downloadBook()"><i class="fas fa-download"></i> Download Now</button>
+            <button class="btn btn-outline"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+            <button class="btn btn-outline"><i class="fas fa-heart"></i> Add to Wishlist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>
