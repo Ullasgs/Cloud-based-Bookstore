@@ -1,13 +1,13 @@
 import { supabase } from './supabaseClient.js';
 
 let books = [];
+let currentBookFilename = null;
 
 async function fetchBooksMetadata() {
-  // Fetch your JSON metadata from Supabase storage
   const { data, error } = await supabase
     .storage
     .from('books')
-    .download('books.json'); // your JSON filename here
+    .download('books.json');
 
   if (error) {
     console.error('Error fetching books metadata:', error.message);
@@ -25,7 +25,6 @@ async function loadBooks() {
   booksGrid.innerHTML = '';
 
   for (const book of books) {
-    // Create signed URL for cover image
     const { data: imageUrlData, error: imageError } = await supabase
       .storage
       .from('books')
@@ -52,11 +51,12 @@ async function loadBooks() {
   }
 }
 
-window.openBookDetails = async function(filename) {
+window.openBookDetails = async function (filename) {
   const book = books.find(b => b.filename === filename);
   if (!book) return alert('Book details not found.');
 
-  // Create signed URL for cover image
+  currentBookFilename = book.filename;
+
   const { data: imageUrlData, error: imageError } = await supabase
     .storage
     .from('books')
@@ -90,14 +90,23 @@ window.downloadBook = async function (fileName) {
     link.remove();
   } catch (error) {
     console.error('Download failed:', error.message);
-    alert('Could not download book.');
   }
 };
 
-// Close modal function (add this if not present)
 window.closeBookDetails = function () {
   document.getElementById('bookDetailsModal').style.display = 'none';
 };
 
-// Call loadBooks on page load
-loadBooks();
+// Attach modal download handler
+document.addEventListener('DOMContentLoaded', () => {
+  const modalDownloadBtn = document.querySelector('#bookDetailsModal .book-details-actions .btn');
+  if (modalDownloadBtn) {
+    modalDownloadBtn.addEventListener('click', () => {
+      if (currentBookFilename) {
+        downloadBook(currentBookFilename);
+      }
+    });
+  }
+
+  loadBooks();
+});
