@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CloudBooks - Your Digital Library</title>
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
-
 <body>
   <header>
     <div class="container">
@@ -21,7 +20,7 @@
           <button><i class="fas fa-search"></i></button>
         </div>
         <div class="nav-links">
-          <a href="#"><i class="fas fa-user"></i>Ullas</a>
+          <a href="#"><i class="fas fa-user"></i> Account</a>
           <a href="#"><i class="fas fa-bookmark"></i> Library</a>
           <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
         </div>
@@ -30,10 +29,9 @@
   </header>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://xyurvsejciodlcixqyqk.supabase.co/storage/v1/object/public/books/alicenetwork.jpg');">
       <h1>Your Digital Library in the Cloud</h1>
-      <p>Discover thousands of books, download instantly, and read anywhere. Your books are always available in your
-        personal cloud library.</p>
+      <p>Discover thousands of books, download instantly, and read anywhere. Your books are always available in your personal cloud library.</p>
       <a href="#featured" class="btn">Explore Books</a>
     </section>
 
@@ -51,10 +49,11 @@
     <section id="featured">
       <h2 class="section-title"><i class="fas fa-star"></i> Featured Books</h2>
       <div class="books-grid">
+
         <!-- Dracula -->
         <div class="book-card">
           <div class="book-cover">
-            <img src="assets/images/dracula.jpg" alt="Dracula">
+            <img src="https://xyurvsejciodlcixqyqk.supabase.co/storage/v1/object/public/books/dracula.jpg" alt="Dracula">
           </div>
           <div class="book-info">
             <div class="book-title">Dracula</div>
@@ -65,11 +64,11 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Frankenstein -->
         <div class="book-card">
           <div class="book-cover">
-            <img src="assets/images/frankenstein.jpg" alt="Frankenstein">
+            <img src="https://xyurvsejciodlcixqyqk.supabase.co/storage/v1/object/public/books/frankenstein.jpg" alt="Frankenstein">
           </div>
           <div class="book-info">
             <div class="book-title">Frankenstein</div>
@@ -80,11 +79,11 @@
             </div>
           </div>
         </div>
-        
+
         <!-- The Alice Network -->
         <div class="book-card">
           <div class="book-cover">
-            <img src="assets/images/alice-network.jpg" alt="The Alice Network">
+            <img src="https://xyurvsejciodlcixqyqk.supabase.co/storage/v1/object/public/books/alicenetwork.jpg" alt="The Alice Network">
           </div>
           <div class="book-info">
             <div class="book-title">The Alice Network</div>
@@ -95,11 +94,11 @@
             </div>
           </div>
         </div>
-        
+
         <!-- The Hobbit -->
         <div class="book-card">
           <div class="book-cover">
-            <img src="assets/images/hobbit.jpg" alt="The Hobbit">
+            <img src="https://xyurvsejciodlcixqyqk.supabase.co/storage/v1/object/public/books/placeholder.jpg" alt="The Hobbit">
           </div>
           <div class="book-info">
             <div class="book-title">The Hobbit</div>
@@ -110,11 +109,11 @@
             </div>
           </div>
         </div>
-        
+
         <!-- The Night Circus -->
         <div class="book-card">
           <div class="book-cover">
-            <img src="assets/images/night-circus.jpg" alt="The Night Circus">
+            <img src="https://xyurvsejciodlcixqyqk.supabase.co/storage/v1/object/public/books/TheNightCircus.jpg" alt="The Night Circus">
           </div>
           <div class="book-info">
             <div class="book-title">The Night Circus</div>
@@ -125,15 +124,11 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <section>
-      <h2 class="section-title"><i class="fas fa-fire"></i> Popular in Technology</h2>
-      <div class="books-grid">
-        <!-- Placeholder for technology books -->
-      </div>
-    </section>
+
   </main>
 
   <footer>
@@ -182,13 +177,13 @@
     </div>
   </footer>
 
-  <!-- Book Details Modal -->
+  <!-- Modal, Spinner, Script Tags -->
   <div id="bookDetailsModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeBookDetails()">&times;</span>
       <div class="book-details">
         <div class="book-details-cover">
-          <img id="modalBookCover" src="/api/placeholder/400/600" alt="Book Cover">
+          <img id="modalBookCover" src="https://xyurvsejciodlcixqyqk.supabase.co/storage/v1/object/public/books/placeholder.jpg" alt="Book Cover">
         </div>
         <div class="book-details-info">
           <h2 id="modalBookTitle" class="book-details-title">Book Title</h2>
@@ -204,14 +199,12 @@
             </div>
             <div class="book-details-meta-item">
               <i class="fas fa-file-alt"></i>
-              <span id="modalBookFormat">PDF, EPUB, MOBI</span>
+              <span id="modalBookFormat">EPUB</span>
             </div>
           </div>
           <div id="modalBookDescription" class="book-details-description">
-            This is a placeholder for the book description. The actual description will be loaded dynamically when you
-            click on a book.
+            This is a placeholder for the book description.
           </div>
-          <div id="modalBookPrice" class="book-details-price">$12.99</div>
           <div class="book-details-actions">
             <button class="btn" onclick="downloadBook()"><i class="fas fa-download"></i> Download Now</button>
             <button class="btn btn-outline"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
@@ -222,9 +215,11 @@
     </div>
   </div>
 
-  <!-- JavaScript Files -->
+  <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+
   <script type="module" src="js/app.js"></script>
-
 </body>
-
 </html>
